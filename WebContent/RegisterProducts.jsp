@@ -9,20 +9,30 @@
 <title>Register Product</title>
 </head>
 <body>
+<sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
+url="jdbc:mysql://localhost:3306/abcdb" user="root" password="12345"
+scope="session" />
 <h1>Register Product</h1>
 <form  method="POST">
 
 Username : <input type="text" name="uname"><br>
-Product Name : <input type="text" name="name"><br>
+<sql:query dataSource="${dataSource}" var="result">
+select * from products;
+</sql:query>
+Product Name : <select name="name">
+<c:forEach var="col" items="${result.rows}">
+<option value="${col.productname}"><c:out value="${col.productname}"></c:out> </option>
+</c:forEach>
+</select><br>
 Serial number : <input type="text"  name= "serial"><br>
 Purchase Date : <input type ="text" name ="date"><br>
+
+
 
 <button type="submit" value="Add Product">Register Product Product</button>
 
 </form>
-<sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
-url="jdbc:mysql://localhost:3306/abcdb" user="root" password="12345"
-scope="session" />
+
 <c:if test="${pageContext.request.method=='POST'}">
 
 <c:catch var="exception">
