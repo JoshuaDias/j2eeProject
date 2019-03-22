@@ -14,8 +14,15 @@ url="jdbc:mysql://localhost:3306/abcdb" user="root" password="12345"
 scope="session" />
 <h1>Register Product</h1>
 <form  method="POST">
+<sql:query dataSource="${dataSource}" var="nameresult">
+select username from users where idusers = ?;
+    <sql:param value="${param.id}" />
+</sql:query>
+<c:forEach var="usernames" items="${nameresult.rows}">
 
-Username : <input type="text" name="uname"><br>
+Username : <input type="text" name="uname" value="${usernames.username}" disabled><br>
+</c:forEach>
+
 <sql:query dataSource="${dataSource}" var="result">
 select * from products;
 </sql:query>

@@ -57,9 +57,12 @@ select * from users where username like "${uname}%";
 </table>
 </c:catch>
 </c:if>
-
+<br>
 <form action="displayUserSearch.jsp">
 <button type="submit" value="Update Products">Update Products</button>
+</form><br>
+<form action="ViewClaims.jsp">
+<button type="submit" value="View Claims">View Claims</button>
 </form>
 
 </body>
