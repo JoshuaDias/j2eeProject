@@ -29,7 +29,7 @@ Purchase Date : <input type ="text" name ="date"><br>
 
 
 
-<button type="submit" value="Add Product">Register Product Product</button>
+<button type="submit" value="Add Product">Register Product</button>
 
 </form>
 

@@ -103,7 +103,7 @@
 				try {
 					//Class.forName("com.mysql.jdbc.Driver");
 					String username = "root";
-					String password = "pass123";
+					String password = "12345";
 					String url = "jdbc:mysql://localhost:3306/abcdb";
 					con = DriverManager.getConnection(url, username, password);
 
