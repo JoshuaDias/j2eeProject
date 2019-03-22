@@ -20,7 +20,9 @@ select username from users where idusers = ?;
 </sql:query>
 <c:forEach var="usernames" items="${nameresult.rows}">
 
-Username : <input type="text" name="uname" value="${usernames.username}" disabled><br>
+<%-- Username : <input type="text" name="uname" value="${usernames.username}" ><br> --%>
+<h3>Welcome <c:out value="${usernames.username}"></c:out>!</h3><br>
+<c:set var="uname" value="${usernames.username}"></c:set>
 </c:forEach>
 
 <sql:query dataSource="${dataSource}" var="result">
@@ -45,7 +47,7 @@ Purchase Date : <input type ="text" name ="date"><br>
 <c:catch var="exception">
 
 
-<c:set var="uname" value="${param.uname}"/>
+
 <c:set var="productname" value="${param.name}"/>
 <sql:query dataSource="${dataSource}" var="users">
 select u.idusers, p.idproducts from users u, products p where u.username = ? and p.productname = ?;
@@ -79,5 +81,36 @@ successfully.</font>
 
 
 </c:if>
+<sql:query dataSource="${dataSource}" var="registerdproducts">
+            select p.productname, r.serialnumber, r.purchasedate from  registerproducts r, products p where r.idproduct = p.idproducts and r.iduser = ${param.id};
+       
+        </sql:query>
+    
+    
+       
+            <table border="1" width="40%">
+                <caption>Your Registered Products</caption>
+                <tr>
+                    <th>Product</th>
+                    <th>Serial Number</th>
+                    <th>Purchase Date</th>                                      
+                    <th colspan="2">Action</th>
+                </tr>
+                <c:forEach var="row" items="${registerdproducts.rows}">
+                    <tr>
+                        <td><c:out value="${row.productname}"/></td>
+                        <td><c:out value="${row.serialnumber}"/></td>
+                        <td><c:out value="${row.purchasedate}"/></td>
+                        
+                        <td><a href="RaiseClaim.jsp?id=<c:out value="${row.serialnumber}"/>">Raise Claim</a></td>
+                       
+                         
+                    </tr>
+                </c:forEach>
+            </table>
+        
+<form action="Login.jsp">
+<input type="Submit" value="Logout">
+</form>
 </body>
 </html>
