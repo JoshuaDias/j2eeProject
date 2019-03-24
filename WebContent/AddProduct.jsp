@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <body style="background-color: gray;">
         <form action="insertdb.jsp" method="post">
             <table border="0" cellspacing="2" cellpadding="5">
                 <thead>

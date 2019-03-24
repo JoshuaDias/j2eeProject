@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Register Product</title>
 </head>
-<body>
+<body style="background-color: gray;">
 <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
 url="jdbc:mysql://localhost:3306/abcdb" user="root" password="12345"
 scope="session" />

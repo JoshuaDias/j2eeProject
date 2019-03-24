@@ -15,7 +15,7 @@
             }
         </script>
     </head>
-    <body>
+    <body style="background-color: gray;">
  
         <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/abcdb"

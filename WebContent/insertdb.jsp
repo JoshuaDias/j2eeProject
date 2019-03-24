@@ -1,4 +1,3 @@
-<!-- Author : Joshua Dias -->
 
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -8,7 +7,7 @@
     <head>
         <title>Add Product</title>
     </head>
-    <body>
+    <body style="background-color: gray;">
         <c:if test="${empty param.productname}">
             <c:redirect url="AddProduct.jsp" >
                 <c:param name="errMsg" value="Please Enter Product and Quantity" />
